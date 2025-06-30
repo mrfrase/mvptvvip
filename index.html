@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎬 Video Exclusivo | Mira Ya</title>
+  <meta name="description" content="Video exclusivo para usuarios. Haz clic y accede al contenido completo.">
+  <meta name="keywords" content="video, exclusivo, smartlink, monetización, Adsterra">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      text-align: center;
+    }
+    .banner {
+      width: 100%;
+      max-width: 728px;
+      margin: 10px auto;
+    }
+    .video-title {
+      font-size: 1.5rem;
+      margin: 20px 10px 10px;
+    }
+    video {
+      width: 90%;
+      max-width: 640px;
+      border: 3px solid #444;
+      margin: 0 auto;
+      display: block;
+      cursor: pointer;
+    }
+    .play-button {
+      margin: 15px auto;
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .banner {
+        max-width: 100%;
+      }
+      .video-title {
+        font-size: 1.2rem;
+      }
+      .play-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'TU_KEY_BANNER_SUPERIOR',
+        'format': 'iframe',
+        'height': 90,
+        'width': 728,
+        'params': {}
+      };
+      document.write('<scr' + 'ipt type="text/javascript" src="//www.profitabledisplaynetwork.com/TU_SCRIPT_SUPERIOR.js"></scr' + 'ipt>');
+    </script>
+  </div>
+
+  <div class="video-title">Contenido Exclusivo - ¡Haz clic para verlo!</div>
+
+  <video id="promoVideo" poster="https://via.placeholder.com/640x360?text=Tu+Video+Aquí">
+    <source src="video.mp4" type="video/mp4" />
+    Tu navegador no soporta el video HTML5.
+  </video>
+
+  <button class="play-button" id="playButton">▶️ Play Video</button>
+
+  <div class="banner">
+    <script type="text/javascript">
+      atOptions = {
+        'key': 'TU_KEY_BANNER_INFERIOR',
+        'format': 'iframe',
+        'height': 90,
+        'width': 728,
+        'params': {}
+      };
+      document.write('<scr' + 'ipt type="text/javascript" src="//www.profitabledisplaynetwork.com/TU_SCRIPT_INFERIOR.js"></scr' + 'ipt>');
+    </script>
+  </div>
+
+  <script>
+    const encodedLink = "aHR0cHM6Ly93d3cucHJvZml0YWJsZXJhdGVjcG0uY29tL2Y5aTMzaHI5ZDI/a2V5PTAzZDc0NzJmNmViNWVhMjRiMzI3N2ExYzNhNTBiZjU2";
+    const smartLink = atob(encodedLink);
+
+    let humanInteraction = false;
+    document.addEventListener('mousemove', () => humanInteraction = true);
+    document.addEventListener('keydown', () => humanInteraction = true);
+
+    const playButton = document.getElementById('playButton');
+    const video = document.getElementById('promoVideo');
+
+    playButton.addEventListener('click', () => {
+      if (!humanInteraction) {
+        alert('Por favor, interactúa con la página antes de reproducir el video.');
+        return;
+      }
+      setTimeout(() => {
+        video.play();
+        window.location.href = smartLink;
+      }, 6000);
+    });
+
+    video.addEventListener('click', () => {
+      if (!humanInteraction) {
+        alert('Por favor, interactúa con la página antes de reproducir el video.');
+        return;
+      }
+      setTimeout(() => {
+        window.location.href = smartLink;
+      }, 6000);
+    });
+
+    let activityLog = [];
+    function logActivity(type) {
+      const timestamp = new Date().toISOString();
+      activityLog.push({ type, timestamp });
+      console.log(`Actividad detectada: ${type} en ${timestamp}`);
+    }
+    document.addEventListener('mousemove', () => logActivity('mousemove'));
+    document.addEventListener('keydown', () => logActivity('keydown'));
+    playButton.addEventListener('click', () => logActivity('click_playButton'));
+    video.addEventListener('click', () => logActivity('click_video'));
+
+    setInterval(() => {
+      console.log('Actividad acumulada en los últimos 10 segundos:', activityLog);
+      activityLog = [];
+    }, 10000);
+  </script>
+</body>
+</html>
