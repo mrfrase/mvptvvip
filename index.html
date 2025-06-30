@@ -73,7 +73,7 @@
   <div class="video-title">Contenido Exclusivo - ¡Haz clic para verlo!</div>
 
   <video id="promoVideo" poster="https://via.placeholder.com/640x360?text=Tu+Video+Aquí">
-    <source src="video.mp4" type="video/mp4" />
+    <source src="https://qu.ax/LGfKC.mp4" type="video/mp4" />
     Tu navegador no soporta el video HTML5.
   </video>
 
@@ -141,4 +141,43 @@
     }, 10000);
   </script>
 </body>
+  <!-- En el <head> -->
+<style>
+    .visitor-widget {
+        background: white;
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+</style>
+
+<!-- En el <body> donde quieras mostrar el widget -->
+<div style="text-align: center; margin: 30px 0;">
+    <div class="visitor-widget">
+        <script id="_waui08">
+            var _wau = _wau || [];
+            _wau.push(["dynamic", "3yjd219mhl", "i08", "c4302bffffff", "small"]);
+        </script>
+        <script async src="//waust.at/d.js"></script>
+    </div>
+    
+    <!-- Contador adicional local -->
+    <div class="visitor-widget">
+        Visitas: <span id="localCounter">0</span>
+    </div>
+</div>
+
+<script>
+    // Contador local complementario
+    if(localStorage.getItem('pageVisits')) {
+        let visits = parseInt(localStorage.getItem('pageVisits')) + 1;
+        localStorage.setItem('pageVisits', visits);
+        document.getElementById('localCounter').textContent = visits;
+    } else {
+        localStorage.setItem('pageVisits', 1);
+        document.getElementById('localCounter').textContent = 1;
+    }
+</script>
 </html>
